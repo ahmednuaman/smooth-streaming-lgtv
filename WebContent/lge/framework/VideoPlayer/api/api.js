@@ -39,7 +39,8 @@ function lge() {
      * given container div Returns -void
      */
     this.createVideoPlayer = function (container, controls, videoPath) {
-        $(container).append('<object type="application/x-netcast-av" width="100%" height="100%" id="video"></object>');
+        // $(container).append('<object type="application/x-netcast-av" width="100%" height="100%" id="video"></object>');
+        $(container).append('<object type="application/vnd.ms-sstr+xml" width="100%" height="100%" id="video"></object>');
         video = getVideo();
         video.onPlayStateChange = playStateChange;
         video.onBuffering = buffering;
@@ -60,7 +61,7 @@ function lge() {
     };
 
     /*
-     * Function fastForward() @param - @Description - function forwards the video playback 
+     * Function fastForward() @param - @Description - function forwards the video playback
      * to 10 sec. Returns -void
      */
     this.fastForward = function () {
@@ -78,7 +79,7 @@ function lge() {
     };
 
     /*
-     * Function rewind() @param - @Description - function rewinds the video playback 
+     * Function rewind() @param - @Description - function rewinds the video playback
      * to 10 sec. Returns -void
      */
     this.rewind = function () {
@@ -96,7 +97,7 @@ function lge() {
     };
 
     /*
-     * Function play() @param - @Description - This function plays & pauses 
+     * Function play() @param - @Description - This function plays & pauses
 	 the video. Returns -void
      */
     this.play = function () {
@@ -240,7 +241,7 @@ function lge() {
     /*
 	Function setPosition()
 	@param - position
-	@Description - to show the running video progress, it keeps track of 
+	@Description - to show the running video progress, it keeps track of
 	progress status bar & progress ball as video runs.
 	Returns  -void
 	*/

@@ -22,24 +22,18 @@
         <title></title>
     </head>
     <body>
-        <div id="player-container">
-            <object id="player" type="application/vnd.ms-sstr+xml"></object>
-        </div>
+        <div id="player-container"></div>
+        <script src="lge/framework/VideoPlayer/util/jquery-1.8.2.min.js"></script>
+        <script src="lge/framework/VideoPlayer/util/jquery-ui.js"></script>
         <script src="lge/framework/VideoPlayer/api/api.js"></script>
         <script src="lge/framework/VideoPlayer/util/keycode.js"></script>
         <script src="config.js"></script>
         <script>
             (function() {
                 function playVideo() {
-                    var player = document.getElementById('player');
-                    player.data = config.mediaURL;
-                    player.play(1);
+                    var app = new lge();
 
-                    // var app = new lge();
-
-                    // app.createVideoPlayer(document.getElementById('player-container'), true, config.mediaURL);
-
-                    // app.play();
+                    app.createVideoPlayer($('player-container'), true, config.mediaURL);
                 }
 
                 playVideo();
