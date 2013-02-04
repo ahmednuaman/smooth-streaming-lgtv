@@ -106,20 +106,20 @@ function lge() {
             video.data = videoPath;
             video.play(1);
             $("#playBtn > img").remove();
-            $('#playBtn').append('<img src="ui/images/player_btn_icon/movie_btn_icon_pause_n.png" alt="pauseImg" class="playBtn" align="center" />');
+            $('#playBtn').append('<img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_pause_n.png" alt="pauseImg" class="playBtn" align="center" />');
         }
         if (video.playState == 2) {
             // play
             video.play(1);
 
             $("#playBtn > img").remove();
-            $('#playBtn').append('<img src="ui/images/player_btn_icon/movie_btn_icon_pause_n.png" alt="pauseImg" class="playBtn" align="center" />');
+            $('#playBtn').append('<img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_pause_n.png" alt="pauseImg" class="playBtn" align="center" />');
 
         } else if (video.playState == 1) {
             // pause
             video.play(0);
             $("#playBtn > img").remove();
-            $('#playBtn').append('<img src="ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg" class="playBtn" align="center" />');
+            $('#playBtn').append('<img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg" class="playBtn" align="center" />');
         }
 
     };
@@ -440,7 +440,7 @@ function lge() {
     addControls = function (container) {
         $(container)
             .append(
-            '<div class="playerBottom">' + '<div class="playerButtonLayout">' + '<div class="progressBarLayout">' + '<div class="progressBar">' + '<div id="progressBg" class="progress progressBg"></div>' + '<div id="progressBuffer" class="progress progressBuffer" ></div>' + '<div id="progressBarStatus" class="progress progressBarStatus"></div>' + '<div id="progressBarClick" class="progress progressBarClick"></div>' + '<div class="runningTime"> <span id="remainingTime"></span> <span id="totalTime" ></span> </div>' + '</div>' + '<div class="runningMovieInfo">' + '<div class="runningMovieName"> </div>' + '<div class="runningMovieType"></div>' + '</div>' + '</div>' + '<div id="lgVid_control">' + '<div id="stop" class="ctrlButtonNormalLeft"><div class="bottomControlBtn" align="center" ><img src="ui/images/player_btn_icon/movie_btn_icon_stop_n.png" alt="stopImg" class="stopBtn"/></div></div>' + '<div id="play" class="ctrlButtonNormal"><div id="playBtn" class="bottomControlBtn" align="center" ><img src="ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg"  class="playBtn" align="center" /></div></div>' + '<div id="rewind" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="ui/images/player_btn_icon/movie_btn_icon_rewind_n.png" alt="rewindImg" class="rewindBtn"/></div></div>' + '<div id="forward" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="ui/images/player_btn_icon/movie_btn_icon_forward_n.png" alt="forwardImg" class="forwardBtn"/></div></div>' + '<div id="switchToFullScreenMode" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="ui/images/player_btn_icon/movie_btn_icon_chapter_n.png" alt="screenImg" class="switchToFullScreenModeBtn"/></div></div>' + '<div id="option" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="ui/images/player_btn_icon/movie_btn_icon_option_n.png" alt="optionImg" class="optionBtn"/></div></div>' + '</div>' + '</div>' + ' <div id="ballCoverage"><div id="progressBall" class="progressBallInitial" > </div></div>' + '</div>');
+            '<div class="playerBottom">' + '<div class="playerButtonLayout">' + '<div class="progressBarLayout">' + '<div class="progressBar">' + '<div id="progressBg" class="progress progressBg"></div>' + '<div id="progressBuffer" class="progress progressBuffer" ></div>' + '<div id="progressBarStatus" class="progress progressBarStatus"></div>' + '<div id="progressBarClick" class="progress progressBarClick"></div>' + '<div class="runningTime"> <span id="remainingTime"></span> <span id="totalTime" ></span> </div>' + '</div>' + '<div class="runningMovieInfo">' + '<div class="runningMovieName"> </div>' + '<div class="runningMovieType"></div>' + '</div>' + '</div>' + '<div id="lgVid_control">' + '<div id="stop" class="ctrlButtonNormalLeft"><div class="bottomControlBtn" align="center" ><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_stop_n.png" alt="stopImg" class="stopBtn"/></div></div>' + '<div id="play" class="ctrlButtonNormal"><div id="playBtn" class="bottomControlBtn" align="center" ><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg"  class="playBtn" align="center" /></div></div>' + '<div id="rewind" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_rewind_n.png" alt="rewindImg" class="rewindBtn"/></div></div>' + '<div id="forward" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_forward_n.png" alt="forwardImg" class="forwardBtn"/></div></div>' + '<div id="switchToFullScreenMode" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_chapter_n.png" alt="screenImg" class="switchToFullScreenModeBtn"/></div></div>' + '<div id="option" class="ctrlButtonNormal"><div class="bottomControlBtn" align="center"><img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_option_n.png" alt="optionImg" class="optionBtn"/></div></div>' + '</div>' + '</div>' + ' <div id="ballCoverage"><div id="progressBall" class="progressBallInitial" > </div></div>' + '</div>');
         $("#lgVid_control").children().each(function (i) {
             switch ($(this).attr("id")) {
                 case "stop":
@@ -776,7 +776,7 @@ Returns- none
 			$('#progressBall').css("left", '0px');
 			$("#progressBuffer").css("width", '0px');
 			$("#playBtn > img").remove();
-			$('#playBtn').append('<img src="ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg" class="playBtn" align="center" />');
+			$('#playBtn').append('<img src="lge/framework/VideoPlayer/ui/images/player_btn_icon/movie_btn_icon_play_n.png" alt="playImg" class="playBtn" align="center" />');
 			$("#remainingTime").text("");
 			$("#totalTime").text("");
 			$(".runningMovieName").text("");
