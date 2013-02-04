@@ -763,7 +763,7 @@ Returns  -void
 Returns- none
 */
     resetProgress = function () {
-		if(bControlsAdded)
+		if(bControlsAdded) {
 			clearTimeout(playTimerId);
 			clearTimeout(hideTimerId);
 			showPlayer();
