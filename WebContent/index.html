@@ -4,8 +4,6 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
-        <script src="../lge/framework/VideoPlayer/api/api.js"></script>
-        <script src="../lge/framework/VideoPlayer/util/keycode.js"></script>
         <style>
             html,
             body {
@@ -25,21 +23,23 @@
     </head>
     <body>
         <div id="player-container">
-            <!-- <object id="player" type="application/vnd.ms-sstr+xml"></object> -->
+            <object id="player" type="application/vnd.ms-sstr+xml"></object>
         </div>
+        <script src="lge/framework/VideoPlayer/api/api.js"></script>
+        <script src="lge/framework/VideoPlayer/util/keycode.js"></script>
         <script src="config.js"></script>
         <script>
             (function() {
                 function playVideo() {
-                    // var player = document.getElementById('player');
-                    // player.data = config.mediaURL;
-                    // player.play(1);
+                    var player = document.getElementById('player');
+                    player.data = config.mediaURL;
+                    player.play(1);
 
-                    var app = new lge();
+                    // var app = new lge();
 
-                    app.createVideoPlayer(document.getElementById('player-container'), true, config.mediaURL);
+                    // app.createVideoPlayer(document.getElementById('player-container'), true, config.mediaURL);
 
-                    app.play();
+                    // app.play();
                 }
 
                 playVideo();
