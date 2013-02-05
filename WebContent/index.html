@@ -11,32 +11,115 @@
                 background: #000000;
             }
 
-            #player-container,
+            a:focus {
+                background: #666666;
+                color: #ffffff;
+            }
+
             #player {
                 display: block;
                 position: absolute;
                 width: 100%;
                 height: 100%;
             }
+
+            #controls {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50px;
+                background: #ffffff;
+                color: #000000;
+            }
         </style>
         <title></title>
     </head>
     <body>
-        <div id="player-container"></div>
-        <script src="lge/framework/VideoPlayer/util/jquery-1.8.2.min.js"></script>
-        <script src="lge/framework/VideoPlayer/util/jquery-ui.js"></script>
-        <script src="lge/framework/VideoPlayer/api/api.js"></script>
-        <script src="lge/framework/VideoPlayer/util/keycode.js"></script>
+        <object id="player" type="application/vnd.ms-sstr+xml"></object>
+        <div id="controls">
+            <a href="#" id="play-video">Play</a>
+            <a href="#" id="pause-video">Pause</a>
+            <a href="#" id="seek-to-5000">Seek to 5s</a>
+            <a href="#" id="seek-to-10000">Seek to 10s</a>
+        </div>
         <script src="config.js"></script>
         <script>
             (function() {
-                function playVideo() {
-                    var app = new lge();
+                var player;
 
-                    app.createVideoPlayer($('#player-container'), true, config.mediaURL);
+                function playVideo() {
+                    player.play(1);
                 }
 
-                playVideo();
+                function pauseVideo () {
+                    player.play(0);
+                }
+
+                function seekVideo (time) {
+                    player.seek(time);
+                }
+
+                function setupVideo () {
+                    player = document.getElementById('player');
+
+                    player.data = config.mediaURL;
+
+                    document.getElementById('play-video').onclick = playVideo;
+                    document.getElementById('pause-video').onclick = pauseVideo;
+                    document.getElementById('seek-to-5000').onclick = handleSeekVideo;
+                    document.getElementById('seek-to-10000').onclick = handleSeekVideo;
+                }
+
+                function handleSeekVideo (event) {
+                    var time = parseInt(event.currentTarget.id.replace('seek-to-', ''));
+
+                    seekVideo(time);
+                }
+
+                function setupLinks () {
+                    var as = document.getElementById('controls').getElementsByTagName('a');
+                    var len = as.length - 1;
+
+                    for (var i = len; i >= 0; i--) {
+                        setupLinkListener(as, i, len);
+                    };
+
+                    as[0].focus();
+                }
+
+                function setupLinkListener (as, index, length) {
+                    var a = as[index];
+                    var before = index === 0 ? as[length] : as[index - 1];
+                    var next = index === length ? as[0] : as[index + 1];
+
+                    a.onkeydown = function (event) {
+                        switch (event.keyCode) {
+                            // left
+                            case 37:
+                                before.focus();
+
+                            break;
+
+                            // right
+                            case 39:
+                                next.focus();
+
+                            break;
+
+                            // enter!
+                            case 13:
+                                a.onclick();
+
+                            break;
+                        }
+                    };
+                }
+
+                setupVideo();
+
+                setupLinks();
             })();
         </script>
     </body>
